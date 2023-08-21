@@ -18,3 +18,10 @@ class UserRepository:
         self.db.conn.commit()
 
         cursor.close()
+
+    def list(self):
+        cursor = self.db.conn.cursor()
+        cursor.execute("SELECT * FROM users;")
+        users = cursor.fetchall()
+        cursor.close()
+        return users
